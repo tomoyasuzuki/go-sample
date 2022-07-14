@@ -18,7 +18,5 @@ USER dev
 
 CMD ["go", "run", "app/main.go"]
 
-# TODO: Use docker-credential-pass
-
 # BUILD: docker build -t go-sample:latest -f docker/Dockerfile . at go-sample/
 # RUN  : docker run -it -p 8080:8080 go-sample:latest
