@@ -2,7 +2,8 @@ name: Build and Push
 
 on:
   push:
-
+    branches:
+      - main
 jobs:
   build-and-push:
     runs-on: ubuntu-18.04
@@ -29,3 +30,10 @@ jobs:
           IMAGE_TAG=$(echo ${{ github.sha }})
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f docker/Dockerfile .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: tomoyasuzuki/kube-sample
+          event-type: update-manifest
+          client-payload: '{"sha": "${{ github.sha }}"}'
