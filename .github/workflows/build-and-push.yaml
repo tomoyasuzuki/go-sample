@@ -33,7 +33,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.REPO_TOKEN }}
           repository: tomoyasuzuki/kube-sample
           event-type: update-manifest
           client-payload: '{"sha": "${{ github.sha }}"}'
