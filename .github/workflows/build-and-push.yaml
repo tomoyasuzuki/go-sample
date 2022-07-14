@@ -6,7 +6,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-18.04
-    working-directory: .
 
     steps:
       - uses: actions/checkout@v1
