@@ -6,9 +6,9 @@ import (
 )
 
 func RootHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello, '/'!!")
+	fmt.Fprint(w, "Hello, Home")
 }
 
 func AboutHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello, '/about'!!")
+	fmt.Fprint(w, "Hello, About")
 }

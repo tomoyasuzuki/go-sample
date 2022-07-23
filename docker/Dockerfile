@@ -4,7 +4,7 @@ ENV ROOT=/go/src/app
 
 WORKDIR ${ROOT}
 
-COPY go.mod ./
+COPY go.mod go.sum ./
 RUN go mod download
 
 COPY app ./app
